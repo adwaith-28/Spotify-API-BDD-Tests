@@ -1,0 +1,53 @@
+﻿## Ignore Visual Studio temporary files, build results, and user-specific files
+
+# Build results
+bin/
+obj/
+TestResults/
+.vscode/
+.vs/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# SpecFlow generated files
+**/GeneratedBindings/*.cs
+**/GeneratedTestClasses/*.cs
+
+# ASP.NET Core secrets
+secrets.json
+appsettings.Development.json
+
+# Resharper & Rider files
+*.DotSettings.user
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Logs
+*.log
+
+# Package files
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Backup & Crash files
+*.bak
+*.orig
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Azure related deployment artifacts
+*.Publish.xml
+*.azurePubxml
+
+# Auto-generated SpecFlow files (optional if you commit feature.cs)
+**/*.feature.cs
