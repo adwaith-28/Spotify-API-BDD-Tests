@@ -1,9 +1,9 @@
-﻿Feature: SearchTrack
+﻿Feature: Spotify Search Track
 
-A short summary of the feature
+To verify the Spotify search endpoint work
 
 @tag1
-Scenario: [scenario name]
-	Given [context]
-	When [action]
-	Then [outcome]
+Scenario: Search for a specific track
+	Given I have a valid client credential token
+	When I search for the track "Shape of You"
+	Then the response should contain the track "Shape of You"
