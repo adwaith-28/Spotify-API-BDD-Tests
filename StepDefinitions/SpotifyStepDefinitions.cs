@@ -16,14 +16,14 @@ namespace SpotifyApi.BDDTests.StepDefinitions
         private string _accessToken;
         private HttpResponseMessage _response;
 
-        [Given(@"I have a valid client credentials token")]
+        [Given(@"I have a valid client credential token")]
         public async Task GivenIHaveAValidClientCredentialsToken()
         {
             _accessToken = await _authService.GetAccessTokenAsync();
         }
 
-        [When(@"I search for track ""(.*)""")]
-        public async Task WhenISearchForTrack(string track) { 
+        [When(@"I search for the track ""(.*)""")]
+        public async Task WhenISearchForTheTrack(string track) { 
 
             var url = $"https://api.spotify.com/v1/search?q={Uri.EscapeDataString(track)}&type=track&limit=1";
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken);
