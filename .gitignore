@@ -51,3 +51,8 @@ Thumbs.db
 
 # Auto-generated SpecFlow files (optional if you commit feature.cs)
 **/*.feature.cs
+
+# .gitignore
+appsettings.json
+*.user
+*.secrets.json
