@@ -11,32 +11,31 @@ namespace SpotifyApi.BDDTests.StepDefinitions
     [Binding]
     public class SpotifyStepDefinitions
     {
-        private static readonly HttpClient _client = new HttpClient();
-        private readonly SpotifyAuthService _authService = new SpotifyAuthService();
         private string _accessToken;
-        private HttpResponseMessage _response;
+        private string _searchResponse;
 
         [Given(@"I have a valid client credential token")]
         public async Task GivenIHaveAValidClientCredentialsToken()
         {
-            _accessToken = await _authService.GetAccessTokenAsync();
+            _accessToken = await SpotifyAuthManager.GetAccessTokenAsync();
+            Assert.IsNotNull(_accessToken);
         }
 
         [When(@"I search for the track ""(.*)""")]
-        public async Task WhenISearchForTheTrack(string track) { 
-
-            var url = $"https://api.spotify.com/v1/search?q={Uri.EscapeDataString(track)}&type=track&limit=1";
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _accessToken);
-            _response = await _client.GetAsync(url);
+        public async Task WhenISearchForTheTrack(string track) 
+        {
+            var searchService = new SpotifySearchService(_accessToken);
+            _searchResponse = await searchService.SearchTrackAsync(track);
         }
 
         [Then(@"the response should contain the track ""(.*)""")]
         public async Task ThenTheResponseShouldContainTheTrack(string expectedTrackName)
         {
-            var content = await _response.Content.ReadAsStringAsync();
-            var json = JObject.Parse(content);
-            var actualTrackName = json["tracks"]?["items"]?[0]?["name"]?.ToString();
-            Assert.AreEqual(expectedTrackName, actualTrackName);
+            var json = JObject.Parse(_searchResponse);
+            var actualTrack = json["tracks"]?["items"]?[0]?["name"]?.ToString();
+
+            TestContext.Out.WriteLine($"Expected: {expectedTrackName}, Actual: {actualTrack}");
+            Assert.AreEqual(expectedTrackName, actualTrack);
         }
     }
 }
