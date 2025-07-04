@@ -9,6 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>  
     <PackageReference Include="FluentAssertions" Version="8.4.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.6" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.6" />

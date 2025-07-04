@@ -11,13 +11,13 @@ namespace SpotifyApi.BDDTests.Helpers
         static ConfigHelper()
         {
             config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
+                .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("appsettings.json", optional: true)
                 .AddUserSecrets(Assembly.GetExecutingAssembly())
                 .Build();
         }
 
-        public static string GetSpotifyClientId() => config["Spotfy:ClientId"];
+        public static string GetSpotifyClientId() => config["Spotify:ClientId"];
 
         public static string GetSpotifyClientSecret() => config["Spotify:ClientSecret"];
     }
