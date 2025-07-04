@@ -1,6 +1,8 @@
 # Spotify API BDD Tests
 
-In this project I implemented BDD style API testing using Spotify's Web APIs. The tests are written in **C#**, use **SpecFlow** for BDD, **NUnit** for assertions, and interact with Spotify via both **Client Credentials Flow** and **Authorization Code Flow (OAuth2)**. I had to learn the different types of authentication, particularly oAuth 2.0 because Spotify uses that for authentication. This was more challenging that I expected, but enjoyed it regardless :) 
+In this project I implemented BDD style API testing using Spotify's Web APIs. The tests are written in **C#**, use **SpecFlow** for BDD, **NUnit** for assertions, and interact with Spotify via both **Client Credentials Flow** and **Authorization Code Flow (OAuth2)**. I had to learn the different types of authentication, particularly OAuth 2.0 because Spotify uses that for authentication. This was more challenging that I expected, but enjoyed it regardless :) <br />
+
+Spotify API Documentation : https://developer.spotify.com/
 
 ## Features Covered
 
