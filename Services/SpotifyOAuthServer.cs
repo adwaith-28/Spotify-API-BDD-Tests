@@ -10,7 +10,7 @@ public class SpotifyOAuthServer
     public SpotifyOAuthServer(string redirectUri)
     {
         _listener = new HttpListener();
-        _listener.Prefixes.Add("http://127.0.0.1:8888/callback/");  // ✅ Required trailing slash
+        _listener.Prefixes.Add("http://127.0.0.1:8888/callback/");  
     }
 
     public async Task StartAsync()
